@@ -28,7 +28,7 @@ exports.addIncome = async (req, res) => {
 
 // Get all  income
 exports.getAllIncome = async (req, res) => {
-  const userID = req.user.id;
+  const userId = req.user.id;
 
   try {
     const income = await Income.find({ userId }).sort({ date: -1 });
@@ -42,7 +42,7 @@ exports.getAllIncome = async (req, res) => {
 exports.deleteIncome = async (req, res) => {
   try {
     await Income.findByIdAndDelete(req.params.id);
-    response.json({ message: "Income deleted successfully " });
+    res.json({ message: "Income deleted successfully " });
   } catch (error) {
     res.status(500).json({ message: " Server Error" });
   }
@@ -66,7 +66,7 @@ exports.downloadIncomeExcel = async (req, res) => {
     const ws = xlsx.utils.json_to_sheet(data);
     xlsx.utils.book_append_sheet(wb, ws, "Income");
     xlsx.writeFile(wb, "income_details.xlsx");
-    res.download("income_details/xlsx");
+    res.download("income_details.xlsx");
   } catch (error) {
     res.status(500).json({ message: "Server Error " });
   }

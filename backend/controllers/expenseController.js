@@ -11,7 +11,7 @@ exports.addExpense = async (req, res) => {
       return res.status(400).json({ message: "All fields are required" });
     }
 
-    const newExpense = newExpense({
+    const newExpense = new Expense({
       userId,
       icon,
       category,
@@ -41,7 +41,7 @@ exports.getAllExpense = async (req, res) => {
 exports.deleteExpense = async (req, res) => {
   try {
     await Expense.findByIdAndDelete(req.params.id);
-    response.json({ message: "Expense deleted successfully " });
+    res.json({ message: "Expense deleted successfully " });
   } catch (error) {
     res.status(500).json({ message: " Server Error" });
   }
@@ -65,7 +65,7 @@ exports.downloadExpenseExcel = async (req, res) => {
     const ws = xlsx.utils.json_to_sheet(data);
     xlsx.utils.book_append_sheet(wb, ws, "Expense");
     xlsx.writeFile(wb, "expense_details.xlsx");
-    res.download("expense_details/xlsx");
+    res.download("expense_details.xlsx");
   } catch (error) {
     res.status(500).json({ message: "Server Error " });
   }
