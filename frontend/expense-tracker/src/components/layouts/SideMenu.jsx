@@ -1,12 +1,9 @@
 import React, { useContext } from "react";
-
 import { SIDE_MENU_DATA } from "../../utils/data";
-
 import { UserContext } from "../../context/UserContext";
-
 import { useNavigate } from "react-router-dom";
 
-const SideMenu = ({activeMenu}) => {
+const SideMenu = ({ activeMenu }) => {
   const { user, clearUser } = useContext(UserContext);
 
   const navigate = useNavigate();
@@ -14,18 +11,14 @@ const SideMenu = ({activeMenu}) => {
   const handleClick = (route) => {
     if (route === "logout") {
       handelLogout();
-
       return;
     }
-
     navigate(route);
   };
 
   const handelLogout = () => {
     localStorage.clear();
-
     clearUser();
-
     navigate("/login");
   };
 
@@ -39,10 +32,17 @@ const SideMenu = ({activeMenu}) => {
             className="w-20 h-20 bg-slate-400 rounded-full"
           />
         ) : (
-          <></>
+          <CharAvatar
+            fullName={fullName}
+            width="w-20h"
+            height="h-20h"
+            style="text-xl"
+          />
         )}
 
-        <h5 className="text-gravy-950 font-medium leading-6">{user?.fullName || ""}</h5>
+        <h5 className="text-gray-950 font-medium leading-6">
+          {user?.fullName || ""}
+        </h5>
       </div>
 
       {SIDE_MENU_DATA.map((item, index) => (
