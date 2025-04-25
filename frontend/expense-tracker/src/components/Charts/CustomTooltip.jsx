@@ -22,4 +22,3 @@ const CustomTooltip = ({ active, payload }) => {
 };
 
 export default CustomTooltip;
-
