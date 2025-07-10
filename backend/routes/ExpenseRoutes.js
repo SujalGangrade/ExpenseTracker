@@ -8,7 +8,7 @@ const {
   downloadExpenseExcel,
 } = require("../controllers/expenseController");
 const { protect } = require("../middleware/authMiddleware");
-const { getAllIncome } = require("../controllers/incomeController");
+//const { getAllIncome } = require("../controllers/incomeController");
 
 router.post("/add", protect, addExpense);
 router.get("/get", protect, getAllExpense);

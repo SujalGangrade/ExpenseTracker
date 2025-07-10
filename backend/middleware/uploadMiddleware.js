@@ -27,3 +27,5 @@ const fileFilter = (req, file, cb) => {
 const upload = multer({ storage, fileFilter });
 
 module.exports = upload;
+
+//cb = callback ("error " , "anything storage location or true or false" );

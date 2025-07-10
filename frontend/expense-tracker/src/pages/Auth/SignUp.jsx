@@ -6,7 +6,7 @@ import ProfilePhotoSelector from "../../components/inputs/ProfilePhotoSelector";
 import { validateEmail } from "../../utils/helper";
 import { UserContext } from "../../context/userContext";
 import { API_PATHS } from "../../utils/apiPaths";
-import uploadImage from "../../utils/uploadImage"; 
+import uploadImage from "../../utils/uploadImage";
 import axiosInstance from "../../utils/axiosInstance";
 
 const SignUp = () => {
@@ -47,7 +47,7 @@ const SignUp = () => {
         fullName,
         email,
         password,
-        profileImageUrl
+        profileImageUrl,
       });
 
       const { token, user } = response.data;
