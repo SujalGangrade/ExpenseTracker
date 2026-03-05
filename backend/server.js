@@ -13,12 +13,13 @@ const app = express();
 // Middleware to handle cors
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || "*",
+    origin: "https://budgetbudiee.netlify.app",
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
+app.options("*", cors());
 app.use(express.json());
 
 connectDB();
