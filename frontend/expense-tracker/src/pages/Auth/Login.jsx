@@ -5,14 +5,14 @@ import Input from "../../components/inputs/Input";
 import { API_PATHS } from "../../utils/apiPaths";
 import axiosInstance from "../../utils/axiosInstance";
 import { validateEmail } from "../../utils/helper";
-import { UserContext } from "../../context/userContext";
+import { userContext } from "../../context/userContext";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
 
-  const{ updateUser } = useContext(UserContext);
+  const{ updateUser } = useContext(userContext);
 
   const navigate = useNavigate();
 

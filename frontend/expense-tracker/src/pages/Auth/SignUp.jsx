@@ -4,7 +4,7 @@ import AuthLayout from "../../components/layouts/AuthLayout";
 import Input from "../../components/inputs/Input";
 import ProfilePhotoSelector from "../../components/inputs/ProfilePhotoSelector";
 import { validateEmail } from "../../utils/helper";
-import { UserContext } from "../../context/userContext";
+import { userContext } from "../../context/userContext";
 import { API_PATHS } from "../../utils/apiPaths";
 import uploadImage from "../../utils/uploadImage";
 import axiosInstance from "../../utils/axiosInstance";
@@ -15,7 +15,7 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
-  const { updateUser } = useContext(UserContext);
+  const { updateUser } = useContext(userContext);
   const navigate = useNavigate();
 
   // Handle Sign Up Form Submit
